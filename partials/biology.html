@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Needs Assessment Form — BSc Laboratory Technology (Biology)</title>
+<style>
+  :root {
+    --dark:   #1F3864;
+    --accent: #2E5FA3;
+    --light:  #EAF0F8;
+    --rowalt: #F7F9FC;
+    --grey:   #C9CDD4;
+    --ink:    #333333;
+    --muted:  #666666;
+    --page:   #ffffff;
+  }
+
+  @page { size: A4; margin: 14mm 12mm 16mm 12mm; }
+
+  html, body {
+    background: #e9ecef;
+    margin: 0; padding: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+
+  .page {
+    background: var(--page);
+    max-width: 210mm;
+    margin: 12mm auto;
+    padding: 14mm 12mm 18mm 12mm;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    position: relative;
+  }
+
+  .masthead {
+    text-align: center;
+    border-bottom: 1.2pt solid var(--dark);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+  .masthead h1 {
+    font-size: 16pt;
+    letter-spacing: .5px;
+    color: var(--dark);
+    margin: 0 0 4px;
+    text-transform: uppercase;
+  }
+  .masthead h2 {
+    font-size: 11pt;
+    color: var(--accent);
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .purpose {
+    border: .8pt solid var(--accent);
+    background: #F2F6FC;
+    padding: 9px 12px;
+    font-size: 9pt;
+    margin-bottom: 14px;
+  }
+  .purpose b { color: var(--dark); }
+
+  section { margin-top: 14px; }
+
+  .banner {
+    background: var(--dark);
+    color: #fff;
+    font-weight: 700;
+    font-size: 10.5pt;
+    padding: 5px 10px;
+    margin: 0 0 8px;
+    letter-spacing: .2px;
+  }
+
+  .lead { font-size: 9pt; margin: 4px 0 6px; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.8pt;
+    table-layout: fixed;
+  }
+  th, td {
+    border: .5pt solid var(--grey);
+    padding: 6px 6px;
+    vertical-align: middle;
+  }
+  th {
+    background: var(--dark);
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    font-size: 8.6pt;
+  }
+  td.label { background: var(--light); font-weight: 700; width: 40%; }
+
+  .input-field {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 9pt;
+    color: var(--ink);
+    padding: 2px 4px;
+    box-sizing: border-box;
+  }
+  .input-field:focus {
+    outline: 1px solid var(--accent);
+    background: #fff;
+  }
+  textarea.input-field { resize: vertical; height: 36px; }
+
+  .kv td:nth-child(2) { background: #fff; padding: 2px 4px; }
+
+  .matrix td:first-child { width: 52%; text-align: left; }
+  .matrix td + td { text-align: center; width: auto; }
+  .matrix tbody tr:nth-child(even) { background: var(--rowalt); }
+  .matrix.two-col td:first-child { width: 68%; }
+
+  .enrol th { background: var(--accent); }
+  .enrol td { height: 28px; text-align: center; }
+
+  .budget td:first-child {
+    background: var(--light);
+    font-weight: 700;
+    width: 46%;
+  }
+
+  .hcheck { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .hcheck label { display: inline-flex; align-items: center; gap: 6px; font-weight: 400; cursor: pointer; }
+
+  .lines-container { margin-top: 4px; }
+  .lines-container textarea {
+    width: 100%;
+    border: .5pt solid #B9BFC7;
+    background: #fafafa;
+    font-family: inherit;
+    font-size: 9pt;
+    padding: 6px;
+    resize: vertical;
+    height: 60px;
+  }
+  .lines-container textarea:focus {
+    background: #fff;
+    outline: 1px solid var(--accent);
+  }
+
+  .note {
+    font-size: 7.8pt;
+    font-style: italic;
+    color: var(--muted);
+    margin: 5px 0 0;
+  }
+
+  .form-actions {
+    margin-top: 25px;
+    text-align: center;
+    padding: 15px;
+    background: var(--light);
+    border: 1px solid var(--accent);
+  }
+  .btn {
+    background: var(--dark);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 10pt;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 0 5px;
+  }
+  .btn:hover { background: var(--accent); }
+  .btn-secondary { background: var(--muted); }
+
+  .footer-note {
+    border-top: .5pt solid var(--grey);
+    margin-top: 18px;
+    padding-top: 6px;
+  }
+
+  @media print {
+    html, body { background: #fff; }
+    .page { box-shadow: none; margin: 0; max-width: none; padding: 0; }
+    .form-actions { display: none; }
+    section { break-inside: avoid; }
+    table { break-inside: auto; }
+    tr { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <form id="needsAssessmentForm">
+
+    <!-- ==================== MASTHEAD ==================== -->
+    <header class="masthead">
+      <h1>Stakeholder Needs Assessment Form</h1>
+      <h2>Proposed BSc in Laboratory Technology (Biology)</h2>
+    </header>
+
+    <!-- ==================== PURPOSE ==================== -->
+    <div class="purpose">
+      <p style="margin:0 0 8px;">
+        <b>Dear Respondent,</b> Thank you for participating in this needs assessment.
+        Kwame Nkrumah University is evaluating the introduction of a Bachelor of Science
+        programme in Laboratory Technology with a specialisation in Biology. As a valued
+        stakeholder — employer, industry partner, professional, alumnus, or educator — your
+        professional perspective is essential in determining whether the proposed programme
+        meets real demand and prepares graduates for the workplace.
+      </p>
+      <p style="margin:0;">
+        <b>Instructions:</b> Please answer each question based on your professional experience
+        and knowledge of your sector. Tick (✓) the appropriate box or provide written responses
+        where indicated. Your progress is saved automatically in your browser.
+      </p>
+    </div>
+
+    <!-- ==================== SECTION A ==================== -->
+    <section>
+      <div class="banner">A.&nbsp;&nbsp;Respondent Information</div>
+      <table class="kv">
+        <tbody>
+          <tr><td class="label">What is your full name?</td><td><input type="text" class="input-field" name="q_name"></td></tr>
+          <tr><td class="label">What is your current job title or professional role?</td><td><input type="text" class="input-field" name="q_title"></td></tr>
+          <tr><td class="label">Which organisation, institution, or professional body do you represent?</td><td><input type="text" class="input-field" name="q_org"></td></tr>
+          <tr>
+            <td class="label">Which sector do you work in?</td>
+            <td>
+              <div class="hcheck">
+                <label><input type="radio" name="q_sector" value="Healthcare"> Healthcare</label>
+                <label><input type="radio" name="q_sector" value="Agriculture"> Agriculture</label>
+                <label><input type="radio" name="q_sector" value="Research"> Research</label>
+                <label><input type="radio" name="q_sector" value="Education"> Education</label>
+                <label><input type="radio" name="q_sector" value="Government"> Government</label>
+                <label><input type="radio" name="q_sector" value="Other"> Other</label>
+              </div>
+            </td>
+          </tr>
+          <tr><td class="label">How many years of professional experience do you have in your field?</td><td><input type="text" class="input-field" name="q_exp"></td></tr>
+          <tr><td class="label">What is your highest academic qualification?</td><td><input type="text" class="input-field" name="q_qual"></td></tr>
+          <tr><td class="label">May we contact you for follow-up questions? (email or phone)</td><td><input type="text" class="input-field" name="q_contact"></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ==================== SECTION B ==================== -->
+    <section>
+      <div class="banner">B.&nbsp;&nbsp;Perceived Need for the Programme</div>
+      <p class="lead">Based on your professional experience, please answer the following questions regarding the need for a BSc Laboratory Technology (Biology) programme.</p>
+
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th style="width:16%;">Yes</th>
+            <th style="width:16%;">No</th>
+            <th style="width:16%;">Unsure</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>In your view, is there a shortage of qualified biology laboratory technologists in your sector or region?</td>
+              <td><input type="radio" name="b_q1" value="Yes"></td><td><input type="radio" name="b_q1" value="No"></td><td><input type="radio" name="b_q1" value="Unsure"></td></tr>
+          <tr><td>Do current graduates in related science programmes possess the technical skills your sector requires?</td>
+              <td><input type="radio" name="b_q2" value="Yes"></td><td><input type="radio" name="b_q2" value="No"></td><td><input type="radio" name="b_q2" value="Unsure"></td></tr>
+          <tr><td>Would your organisation be likely to employ graduates of this proposed programme?</td>
+              <td><input type="radio" name="b_q3" value="Yes"></td><td><input type="radio" name="b_q3" value="No"></td><td><input type="radio" name="b_q3" value="Unsure"></td></tr>
+          <tr><td>In your view, is there sufficient employer demand in the region to justify this programme?</td>
+              <td><input type="radio" name="b_q4" value="Yes"></td><td><input type="radio" name="b_q4" value="No"></td><td><input type="radio" name="b_q4" value="Unsure"></td></tr>
+          <tr><td>Do you think prospective students would be attracted to this specialised programme?</td>
+              <td><input type="radio" name="b_q5" value="Yes"></td><td><input type="radio" name="b_q5" value="No"></td><td><input type="radio" name="b_q5" value="Unsure"></td></tr>
+          <tr><td>Would this programme offer graduates better career prospects than general science degrees?</td>
+              <td><input type="radio" name="b_q6" value="Yes"></td><td><input type="radio" name="b_q6" value="No"></td><td><input type="radio" name="b_q6" value="Unsure"></td></tr>
+          <tr><td>Do you support the introduction of this programme at Kwame Nkrumah University?</td>
+              <td><input type="radio" name="b_q7" value="Yes"></td><td><input type="radio" name="b_q7" value="No"></td><td><input type="radio" name="b_q7" value="Unsure"></td></tr>
+        </tbody>
+      </table>
+      <p class="note">Framework adapted from UCD Needs Analysis Form and USHE programme-need criteria.</p>
+    </section>
+
+    <!-- ==================== SECTION C ==================== -->
+    <section>
+      <div class="banner">C.&nbsp;&nbsp;Labour Market Perspective</div>
+      <table class="kv">
+        <tbody>
+          <tr>
+            <td class="label">Does your organisation currently employ biology laboratory technologists?</td>
+            <td>
+              <div class="hcheck">
+                <label><input type="radio" name="c_employs" value="Yes"> Yes</label>
+                <label><input type="radio" name="c_employs" value="No"> No</label>
+              </div>
+            </td>
+          </tr>
+          <tr><td class="label">How many biology laboratory technologists does your organisation currently employ?</td><td><input type="text" class="input-field" name="c_current_num"></td></tr>
+          <tr><td class="label">How many do you anticipate hiring over the next three years?</td><td><input type="text" class="input-field" name="c_hiring_num"></td></tr>
+          <tr><td class="label">Which technical skills are most important for employment in your sector?</td><td><input type="text" class="input-field" name="c_tech_skills"></td></tr>
+          <tr><td class="label">What is the typical entry-level salary range in your sector (local currency)?</td><td><input type="text" class="input-field" name="c_salary"></td></tr>
+          <tr><td class="label">Which qualifications or certifications do you prioritise when recruiting?</td><td><input type="text" class="input-field" name="c_quals"></td></tr>
+          <tr>
+            <td class="label">Would your organisation be willing to offer internship or attachment opportunities?</td>
+            <td>
+              <div class="hcheck">
+                <label><input type="radio" name="c_intern" value="Yes"> Yes</label>
+                <label><input type="radio" name="c_intern" value="No"> No</label>
+                <label><input type="radio" name="c_intern" value="Maybe"> Maybe</label>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ==================== SECTION D ==================== -->
+    <section>
+      <div class="banner">D.&nbsp;&nbsp;Student Demand (Stakeholder Perspective)</div>
+      <table class="kv">
+        <tbody>
+          <tr><td class="label">Estimated prospective students interested annually:</td><td><input type="text" class="input-field" name="d_est_students"></td></tr>
+          <tr><td class="label">Motivating reasons for students to enrol:</td><td><input type="text" class="input-field" name="d_motivations"></td></tr>
+          <tr><td class="label">Competing programmes in the region:</td><td><input type="text" class="input-field" name="d_competing"></td></tr>
+          <tr><td class="label">Unique features that would make this programme stand out:</td><td><input type="text" class="input-field" name="d_unique"></td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size:8.8pt; font-weight:700; margin:10px 0 4px;">Projected annual enrolment (FTE):</p>
+      <table class="enrol">
+        <thead>
+          <tr><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" class="input-field" style="text-align:center;" name="fte_y1"></td>
+            <td><input type="text" class="input-field" style="text-align:center;" name="fte_y2"></td>
+            <td><input type="text" class="input-field" style="text-align:center;" name="fte_y3"></td>
+            <td><input type="text" class="input-field" style="text-align:center;" name="fte_y4"></td>
+            <td><input type="text" class="input-field" style="text-align:center;" name="fte_y5"></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Demand indicators based on USHE programme-need guidelines.</p>
+    </section>
+
+    <!-- ==================== SECTION E ==================== -->
+    <section>
+      <div class="banner">E.&nbsp;&nbsp;Curriculum Content Priorities</div>
+      <p class="lead">How important are the following biology-related topics for a graduate entering your sector?</p>
+
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th style="width:16%;">Essential</th>
+            <th style="width:16%;">Important</th>
+            <th style="width:16%;">Not Important</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Cell biology and microscopy (staining, cell culture)</td>
+              <td><input type="radio" name="e_t1" value="Essential"></td><td><input type="radio" name="e_t1" value="Important"></td><td><input type="radio" name="e_t1" value="Not Important"></td></tr>
+          <tr><td>Microbiology and culture techniques (aseptic handling, incubation)</td>
+              <td><input type="radio" name="e_t2" value="Essential"></td><td><input type="radio" name="e_t2" value="Important"></td><td><input type="radio" name="e_t2" value="Not Important"></td></tr>
+          <tr><td>Genetics and molecular biology (PCR, electrophoresis)</td>
+              <td><input type="radio" name="e_t3" value="Essential"></td><td><input type="radio" name="e_t3" value="Important"></td><td><input type="radio" name="e_t3" value="Not Important"></td></tr>
+          <tr><td>Biochemistry and enzymology (assays, spectrophotometry)</td>
+              <td><input type="radio" name="e_t4" value="Essential"></td><td><input type="radio" name="e_t4" value="Important"></td><td><input type="radio" name="e_t4" value="Not Important"></td></tr>
+          <tr><td>Immunology and serology (ELISA, blood grouping)</td>
+              <td><input type="radio" name="e_t5" value="Essential"></td><td><input type="radio" name="e_t5" value="Important"></td><td><input type="radio" name="e_t5" value="Not Important"></td></tr>
+          <tr><td>Ecology and environmental sampling (water, soil, air)</td>
+              <td><input type="radio" name="e_t6" value="Essential"></td><td><input type="radio" name="e_t6" value="Important"></td><td><input type="radio" name="e_t6" value="Not Important"></td></tr>
+          <tr><td>Laboratory safety and biohazard management</td>
+              <td><input type="radio" name="e_t7" value="Essential"></td><td><input type="radio" name="e_t7" value="Important"></td><td><input type="radio" name="e_t7" value="Not Important"></td></tr>
+        </tbody>
+      </table>
+      <p class="note">Biology curriculum content informed by the ERIC curriculum guide.</p>
+    </section>
+
+    <!-- ==================== SECTION F ==================== -->
+    <section>
+      <div class="banner">F.&nbsp;&nbsp;Training Priorities</div>
+      <p class="lead">How important is it that graduates are trained to use each of the following items?</p>
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th style="width:16%;">Essential</th>
+            <th style="width:16%;">Useful</th>
+            <th style="width:16%;">Not Necessary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Microscopes (light, phase-contrast, fluorescent)</td>
+              <td><input type="radio" name="f_i1" value="Essential"></td><td><input type="radio" name="f_i1" value="Useful"></td><td><input type="radio" name="f_i1" value="Not Necessary"></td></tr>
+          <tr><td>Incubators and culture facilities</td>
+              <td><input type="radio" name="f_i2" value="Essential"></td><td><input type="radio" name="f_i2" value="Useful"></td><td><input type="radio" name="f_i2" value="Not Necessary"></td></tr>
+          <tr><td>Centrifuges and microcentrifuges</td>
+              <td><input type="radio" name="f_i3" value="Essential"></td><td><input type="radio" name="f_i3" value="Useful"></td><td><input type="radio" name="f_i3" value="Not Necessary"></td></tr>
+          <tr><td>Autoclaves and sterilization equipment</td>
+              <td><input type="radio" name="f_i4" value="Essential"></td><td><input type="radio" name="f_i4" value="Useful"></td><td><input type="radio" name="f_i4" value="Not Necessary"></td></tr>
+          <tr><td>PCR machines and electrophoresis units</td>
+              <td><input type="radio" name="f_i5" value="Essential"></td><td><input type="radio" name="f_i5" value="Useful"></td><td><input type="radio" name="f_i5" value="Not Necessary"></td></tr>
+          <tr><td>Spectrophotometers and colorimeters</td>
+              <td><input type="radio" name="f_i6" value="Essential"></td><td><input type="radio" name="f_i6" value="Useful"></td><td><input type="radio" name="f_i6" value="Not Necessary"></td></tr>
+          <tr><td>Biosafety cabinets and fume hoods</td>
+              <td><input type="radio" name="f_i7" value="Essential"></td><td><input type="radio" name="f_i7" value="Useful"></td><td><input type="radio" name="f_i7" value="Not Necessary"></td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size:8.8pt; font-weight:700; margin:10px 0 2px;">Which additional equipment or techniques should graduates be trained on?</p>
+      <div class="lines-container"><textarea name="f_additional"></textarea></div>
+    </section>
+
+    <!-- ==================== SECTION G ==================== -->
+    <section>
+      <div class="banner">G.&nbsp;&nbsp;Skills and Competencies Required</div>
+      <table class="kv">
+        <tbody>
+          <tr><td class="label">Practical laboratory skills required on entry:</td><td><input type="text" class="input-field" name="g_practical"></td></tr>
+          <tr><td class="label">Valued soft skills (communication, teamwork, problem-solving):</td><td><input type="text" class="input-field" name="g_soft"></td></tr>
+          <tr><td class="label">Certifications or licences that enhance employability:</td><td><input type="text" class="input-field" name="g_certs"></td></tr>
+          <tr><td class="label">Software or digital tools for graduate competence:</td><td><input type="text" class="input-field" name="g_software"></td></tr>
+          <tr><td class="label">Additional training recommended for new graduates:</td><td><input type="text" class="input-field" name="g_recommend"></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ==================== SECTION H ==================== -->
+    <section>
+      <div class="banner">H.&nbsp;&nbsp;Professional Standards and Safety</div>
+      <p class="lead">In your view, how important are the following in preparing graduates for professional practice?</p>
+      <table class="matrix two-col">
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th style="width:16%;">Yes</th>
+            <th style="width:16%;">No</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Should biosafety training be a core requirement of the programme?</td>
+              <td><input type="radio" name="h_q1" value="Yes"></td><td><input type="radio" name="h_q1" value="No"></td></tr>
+          <tr><td>Should graduates be formally certified in biosafety before employment?</td>
+              <td><input type="radio" name="h_q2" value="Yes"></td><td><input type="radio" name="h_q2" value="No"></td></tr>
+          <tr><td>Does your organisation require formal biosafety certification for laboratory staff?</td>
+              <td><input type="radio" name="h_q3" value="Yes"></td><td><input type="radio" name="h_q3" value="No"></td></tr>
+          <tr><td>Should the programme include a dedicated module on biohazard waste management?</td>
+              <td><input type="radio" name="h_q4" value="Yes"></td><td><input type="radio" name="h_q4" value="No"></td></tr>
+          <tr><td>Would you recommend additional regulatory or compliance training for graduates?</td>
+              <td><input type="radio" name="h_q5" value="Yes"></td><td><input type="radio" name="h_q5" value="No"></td></tr>
+        </tbody>
+      </table>
+
+      <p style="font-size:8.8pt; font-weight:700; margin:10px 0 2px;">Which specific biosafety or regulatory standards should the programme cover?</p>
+      <div class="lines-container"><textarea name="h_safety_standards"></textarea></div>
+    </section>
+
+    <!-- ==================== SECTION I ==================== -->
+    <section>
+      <div class="banner">I.&nbsp;&nbsp;Programme Investment Priorities</div>
+      <p class="lead">How important is it for the university to invest in each of the following areas?</p>
+      <table class="budget matrix">
+        <thead>
+          <tr>
+            <th style="text-align:left;">Area of Investment</th>
+            <th>Very Important</th>
+            <th>Important</th>
+            <th>Not Important</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>New laboratory equipment</td>
+              <td><input type="radio" name="i_inv1" value="Very Important"></td><td><input type="radio" name="i_inv1" value="Important"></td><td><input type="radio" name="i_inv1" value="Not Important"></td></tr>
+          <tr><td>Laboratory consumables and reagents</td>
+              <td><input type="radio" name="i_inv2" value="Very Important"></td><td><input type="radio" name="i_inv2" value="Important"></td><td><input type="radio" name="i_inv2" value="Not Important"></td></tr>
+          <tr><td>Qualified teaching and technical staff</td>
+              <td><input type="radio" name="i_inv3" value="Very Important"></td><td><input type="radio" name="i_inv3" value="Important"></td><td><input type="radio" name="i_inv3" value="Not Important"></td></tr>
+          <tr><td>Facility renovation and upgrade</td>
+              <td><input type="radio" name="i_inv4" value="Very Important"></td><td><input type="radio" name="i_inv4" value="Important"></td><td><input type="radio" name="i_inv4" value="Not Important"></td></tr>
+          <tr><td>Library and digital resources</td>
+              <td><input type="radio" name="i_inv5" value="Very Important"></td><td><input type="radio" name="i_inv5" value="Important"></td><td><input type="radio" name="i_inv5" value="Not Important"></td></tr>
+          <tr><td>Industry partnerships and internships</td>
+              <td><input type="radio" name="i_inv6" value="Very Important"></td><td><input type="radio" name="i_inv6" value="Important"></td><td><input type="radio" name="i_inv6" value="Not Important"></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ==================== SECTION J ==================== -->
+    <section>
+      <div class="banner">J.&nbsp;&nbsp;Additional Comments and Recommendations</div>
+      <p class="lead">Please provide any additional information, concerns, or recommendations regarding the proposed programme.</p>
+      <div class="lines-container"><textarea name="j_comments" style="height: 100px;"></textarea></div>
+    </section>
+
+    <!-- ==================== SUBMISSION ACTIONS ==================== -->
+    <div class="form-actions">
+      <button type="button" class="btn" id="saveBtn">Save / Export Data</button>
+      <button type="button" class="btn btn-secondary" id="clearBtn">Clear Form</button>
+      <p id="statusMsg" style="font-size: 8.5pt; color: var(--dark); margin-top: 8px; font-weight: bold;"></p>
+    </div>
+
+    <p class="note footer-note">
+      This form integrates needs-assessment frameworks from UCD, USHE, NISLT, and ERIC curriculum guidelines.
+    </p>
+
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('needsAssessmentForm');
+  const statusMsg = document.getElementById('statusMsg');
+  const STORAGE_KEY = 'needs_assessment_biology';
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedData = localStorage.getItem(STORAGE_KEY);
+    if (savedData) {
+      const formData = JSON.parse(savedData);
+      Object.keys(formData).forEach(name => {
+        const elements = form.elements[name];
+        if (elements) {
+          if (elements.type === 'radio') {
+            if (elements.value === formData[name]) elements.checked = true;
+          } else if (elements.length > 1 && elements[0].type === 'radio') {
+            for (let el of elements) {
+              if (el.value === formData[name]) el.checked = true;
+            }
+          } else {
+            elements.value = formData[name];
+          }
+        }
+      });
+      statusMsg.textContent = "Draft loaded from previous session.";
+    }
+  });
+
+  form.addEventListener('input', () => {
+    const formData = new FormData(form);
+    const dataObj = {};
+    formData.forEach((value, key) => { dataObj[key] = value; });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(dataObj));
+    statusMsg.textContent = "Progress saved automatically.";
+  });
+
+  document.getElementById('saveBtn').addEventListener('click', () => {
+    const formData = new FormData(form);
+    const dataObj = {};
+    formData.forEach((value, key) => { dataObj[key] = value; });
+
+    const blob = new Blob([JSON.stringify(dataObj, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'needs_assessment_biology_response.json';
+    a.click();
+    statusMsg.textContent = "Form data exported successfully as JSON file!";
+  });
+
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    if (confirm('Are you sure you want to clear all responses?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      form.reset();
+      statusMsg.textContent = "Form has been cleared.";
+    }
+  });
+</script>
+
+</body>
+</html>
